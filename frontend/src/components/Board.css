@@ -1,0 +1,12 @@
+.boardOverview {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.boardButtons {
+    display: flex;
+}
