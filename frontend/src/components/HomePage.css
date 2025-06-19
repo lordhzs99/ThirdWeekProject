@@ -1,0 +1,50 @@
+.HomePage {
+  justify-content: space-evenly;
+}
+
+footer {
+  background-color: teal;
+  color: #fff;
+  width: 100%; 
+}
+
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+header {
+  display: flex;
+  background-color: #01959d;
+  height: 50px;
+  width: auto;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.boardOverview {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+}
+
+.boardButtons {
+    display: flex;
+}
+
+
+main {
+  flex-grow: 1;
+}
+
+.gridOfBoards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 20px;
+}

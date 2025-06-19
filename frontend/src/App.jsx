@@ -1,31 +1,22 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage.jsx';
+import BoardPage from './components/BoardPage.jsx';
+import BoardForm from './components/BoardForm.jsx';
 import './App.css'
-import BoardGrid from './components/BoardGrid'
-import data from './data/data.js'
-
 function App() {
-  const [count, setCount] = useState(0)
-  const [gridBoard, setGridBoard] = useState(data); 
-
-  console.log(gridBoard); 
+  const handleBoardAdded = () => {
+    window.location.href = '/';
+  };
 
   return (
-    <div className='App'>
-      <header>
-          HEADER
-      </header>
-      <main>
-        <BoardGrid gridBoard={gridBoard}>
-
-        </BoardGrid>
-      </main>
-      <footer>
-
-      </footer>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage onBoardAdded={() => window.location.href = '/'}/>}/>
+        {/* <Route path="/board-form" element={<BoardForm />} /> */}
+        <Route path="/:id" element={<BoardPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
