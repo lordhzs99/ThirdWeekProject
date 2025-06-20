@@ -7,8 +7,8 @@
                 0 10px 10px #32b373; 
     transition: .2s;
     margin: 10px;
-    height: 370px; /* or whatever fixed height you want */
-    width: 320px;  /* or whatever fixed width you want */
+    height: 370px; 
+    width: 320px; 
 }
 
 .cardTitle, .cardDescription, .boardAuthor {
@@ -20,15 +20,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 220px;   /* fixed height for image area */
+    height: 220px;   
     width: 100%;
     margin: 0 auto;
 }
 
 .cardImage img {
-    width: 200px;    /* fixed width for all images */
-    height: 200px;   /* fixed height for all images */
-    object-fit: cover; /* or 'contain' if you want to see the whole gif */
+    width: 200px;   
+    height: 200px;  
+    object-fit: cover;
     display: block;
     margin: 0 auto;
     border-radius: 8px;

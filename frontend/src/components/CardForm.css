@@ -18,11 +18,11 @@
   max-height: 90vh;
   overflow-y: auto;
   color: white;
-  align-items: center; /* Add this line */
+  align-items: center;
 }
 
 .formCard input[type="text"], .formCard label, .formCard button[type="search"], .formCard button[type="button"], .formCard .gif-options, .formCard .submit {
-  margin: 10px auto; /* Add this line */
+  margin: 10px auto; 
 }
 
 .formCard input[type="text"] {
@@ -87,16 +87,10 @@
     .form {
         padding: 10px;
     }
-    /* .form .upperPart {
-        gap: 10px;
-    } */
 }
 
 @media (max-width: 480px) {
     .form {
         padding: 5px;
     }
-    /* .form .upperPart {
-        gap: 5px;
-    } */
 }

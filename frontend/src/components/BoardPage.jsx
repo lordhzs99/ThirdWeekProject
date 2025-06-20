@@ -95,7 +95,6 @@ const handlelOnDelete = (card_id) => {
         <div className="boardPage">
             <Header/>
             <Link to="/">
-                {/* <span className="back-arrow"></span> */}
                 <HiArrowCircleLeft style={{ fontSize: '2rem', color: '#01959d', marginLeft: '25px', width: '3vw', height: '3vw', display: "block"}}/>
             </Link>
             <main>

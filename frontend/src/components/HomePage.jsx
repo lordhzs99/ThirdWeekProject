@@ -11,7 +11,7 @@ import './Homepage.css'
 
 function HomePage({ onBoardAdded }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [count, setCount] = useState(0)
+//   const [count, setCount] = useState(0)
   const [gridBoard, setGridBoard] = useState([]); 
   const [searchQuery, setSearchQuery] = useState('');
   const [currentCategory, setCategory] = useState(''); 
@@ -25,7 +25,6 @@ function HomePage({ onBoardAdded }) {
         fetch('http://localhost:3000/board')
         .then(response => response.json())
         .then(data => {
-            // Assign a random image number to each board ONCE
             const boardsWithImages = data.map(board => ({
             ...board,
             randomImage: Math.floor(Math.random() * 1000)
@@ -143,7 +142,7 @@ function HomePage({ onBoardAdded }) {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={(e) => {
-          if (e.key === "Enter") handleSearch(); // Trigger search on Enter key
+          if (e.key === "Enter") handleSearch(); 
           console.log("searchQ: ", searchQuery); 
           }} 
           style={{ width: '135px' }}

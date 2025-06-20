@@ -120,7 +120,6 @@ export default function CardForm({ open, close, id, onSuccess }){
                             src={gifUrl}
                             alt="GIF"
                             onClick={() => handleSelectGif(gifUrl)}
-                            // onClick={(e) => {setSelectedGifUrl(e.target.value); setGif(e.target.value); setGifOptions([]);}}
                             />
                         </div>
                         ))}
