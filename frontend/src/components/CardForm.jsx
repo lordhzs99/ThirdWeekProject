@@ -29,18 +29,18 @@ export default function CardForm({ open, close, id, onSuccess }){
             },
         });
 
-        const gifData = response.data.data;
-        const gifUrls = gifData.map((gif) => gif.images.original.url);
-        setGifOptions(gifUrls);
+        const gdata = response.data.data;
+        const gurl = gdata.map((gif) => gif.images.original.url);
+        setGifOptions(gurl);
         } catch (error) {
-        console.error("Error searching for GIFs:", error);
+        console.error("Error", error);
         }
     };
 
     const createNewCard = (e) => {
         e.preventDefault()
 
-        fetch(`http://localhost:3000/board/${id}/card`, {
+        fetch(`${import.meta.env.VITE_URL}/board/${id}/card`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

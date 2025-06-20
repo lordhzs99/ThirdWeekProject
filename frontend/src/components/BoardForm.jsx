@@ -4,7 +4,6 @@ import axios from 'axios'
 export default function BoardForm({ onBoardAdded, open, close }){
     if (!open) return null;
    
-    const [board, setBoard] = useState([]); 
     const [formData, setFormData] = useState({
         title: '', 
         category: '', 
@@ -15,7 +14,7 @@ export default function BoardForm({ onBoardAdded, open, close }){
     const createNewBoard = (e) => {
     e.preventDefault()
 
-    fetch('http://localhost:3000/board', {
+    fetch(`${import.meta.env.VITE_URL}/board`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

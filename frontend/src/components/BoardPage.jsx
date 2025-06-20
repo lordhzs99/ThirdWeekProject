@@ -17,14 +17,11 @@ export default function BoardPage(){
 
 
     useEffect(() => {
-    // fetch data from backend
     const fetchData = async () => {
-        fetch(`http://localhost:3000/board/${id}`)
+        fetch(`${import.meta.env.VITE_URL}/board/${id}`)
             .then(response => response.json())
             .then(data => {
                 setTitle(data.title)
-                // setGridCard(data)
-                // console.log(data.card)
             })
             .catch(error => console.error('Error fetching posts:', error))
     };
@@ -32,9 +29,8 @@ export default function BoardPage(){
     }, []);
 
     useEffect(() => {
-  // fetch data from backend
   const fetchData = async () => {
-    fetch(`http://localhost:3000/board/${id}/card`)
+    fetch(`${import.meta.env.VITE_URL}/board/${id}/card`)
       .then(response => response.json())
       .then(data => {
         setGridCard(data)
@@ -47,7 +43,7 @@ export default function BoardPage(){
 
 
 const handlelOnDelete = (card_id) => {
-  fetch(`http://localhost:3000/board/${id}/card/${card_id}`, {
+  fetch(`${import.meta.env.VITE_URL}/board/${id}/card/${card_id}`, {
     method: 'DELETE',
   })
   .then(response => {

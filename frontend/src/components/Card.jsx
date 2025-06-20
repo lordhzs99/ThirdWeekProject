@@ -8,7 +8,7 @@ export default function Card({ cardId, title, description, author, gif, onDelete
     const handleUpvote = async () => {
   try {
     const response = await fetch(
-      `http://localhost:3000/board/${boardId}/card/${cardId}/votes`,
+      `${import.meta.env.VITE_URL}/board/${boardId}/card/${cardId}/votes`,
       {
         method: 'PUT',
         headers: {

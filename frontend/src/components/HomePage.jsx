@@ -22,7 +22,7 @@ function HomePage({ onBoardAdded }) {
 
     useEffect(() => {
     const fetchData = async () => {
-        fetch('http://localhost:3000/board')
+        fetch(`${import.meta.env.VITE_URL}/board`)
         .then(response => response.json())
         .then(data => {
             const boardsWithImages = data.map(board => ({
@@ -62,7 +62,7 @@ function HomePage({ onBoardAdded }) {
 
 
     const handlelOnDelete = (id) => {
-    fetch(`http://localhost:3000/board/${id}`, {
+    fetch(`${import.meta.env.VITE_URL}/board/${id}`, {
         method: 'DELETE',
     })
     .then(response => {
