@@ -35,7 +35,10 @@ export default function Card({ cardId, title, description, author, gif, onDelete
                 <div className='cardImage'>
                     <img src={gif} alt="GIF" />
                 </div>
-                <div className='boardAuthor'>{author}</div>
+                {/* <div className='boardAuthor'>{author}</div> */}
+                <div className='boardAuthor'>
+                  {author ? `by ${author}` : 'anonymous'}
+                </div>
             </div>
             <div className='cardButtons'>
                 <button className='upvote-button' onClick={handleUpvote}>Upvote: {currentVotes}</button>

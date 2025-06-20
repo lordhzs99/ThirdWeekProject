@@ -1,11 +1,38 @@
+:root {
+  --card-bg: #d5d5d5;
+  --card-shadow1: hsl(192, 40%, 31%);
+  --card-shadow2: #32b373;
+  --card-text: #222;
+  --card-img-bg: #fff;
+  --button-bg: #f0fafa;
+  --button-text: #333;
+  --button-hover-bg: #e5e5e5;
+  --button-hover-text: #222;
+  --button-active-bg: #d3d3d3;
+}
+
+[data-theme="dark"] {
+  --card-bg: #23272a;
+  --card-shadow1: rgba(0,0,0,0.7);
+  --card-shadow2: #01959d;
+  --card-text: #f1f1f1;
+  --card-img-bg: #181a1b;
+  --button-bg: #23272a;
+  --button-text: #f1f1f1;
+  --button-hover-bg: #333;
+  --button-hover-text: #fff;
+  --button-active-bg: #181a1b;
+}
+
 .cardOverview {
     display: flex;
     flex-direction: column;
-    background: #d5d5d5;
+    background: var(--card-bg);
+    color: var(--card-text);
     padding: 1px;
-    box-shadow: 0px 5px 8px hsl(192, 40%, 31%), 
-                0 10px 10px #32b373; 
-    transition: .2s;
+    box-shadow: 0px 5px 8px var(--card-shadow1), 
+                0 10px 10px var(--card-shadow2); 
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     margin: 10px;
     height: 370px; 
     width: 320px; 
@@ -14,6 +41,7 @@
 .cardTitle, .cardDescription, .boardAuthor {
     text-align: center;
     margin: 4px 0;
+    color: var(--card-text);
 }
 
 .cardImage {
@@ -32,7 +60,7 @@
     display: block;
     margin: 0 auto;
     border-radius: 8px;
-    background: #fff;
+    background: var(--card-img-bg);
 }
 
 .cardContent {
@@ -50,17 +78,10 @@
     padding: 8px 0 0 0;
 }
 
-
-.cardButtons {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
 .cardButtons .view-board,
 .cardButtons button {
-  background: #f0fafa;
-  color: #333;
+  background: var(--button-bg);
+  color: var(--button-text);
   border: none;
   border-radius: 20px;
   padding: 10px 22px;
@@ -68,6 +89,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: 
+    background 0.2s,
+    color 0.2s,
     box-shadow 0.2s,
     transform 0.1s;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -75,13 +98,14 @@
 
 .cardButtons .view-board:hover,
 .cardButtons button:hover {
-  background: #e5e5e5;
+  background: var(--button-hover-bg);
+  color: var(--button-hover-text);
   transform: translateY(-2px) scale(1.04);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .cardButtons .view-board:active,
 .cardButtons button:active {
-  background: #d3d3d3;
+  background: var(--button-active-bg);
   transform: scale(0.98);
 }

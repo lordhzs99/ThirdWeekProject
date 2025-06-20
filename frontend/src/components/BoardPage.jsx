@@ -6,6 +6,8 @@ import Header from "./Header";
 import { useEffect, useState } from 'react'
 import { Link, useParams } from "react-router-dom";
 import { HiArrowCircleLeft } from "react-icons/hi";
+import ThemeToggle from './ThemeToggle';
+
 
 
 export default function BoardPage(){
@@ -90,6 +92,7 @@ const handlelOnDelete = (card_id) => {
     return(
         <div className="boardPage">
             <Header/>
+            <ThemeToggle />
             <Link to="/">
                 <HiArrowCircleLeft style={{ fontSize: '2rem', color: '#01959d', marginLeft: '25px', width: '3vw', height: '3vw', display: "block"}}/>
             </Link>

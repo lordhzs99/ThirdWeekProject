@@ -18,4 +18,26 @@
   flex-direction: column;
   min-height: 100vh; */
   justify-content: space-evenly;
+} 
+
+
+:root {
+  --background: #fff;
+  --text: #222;
+  --card-bg: #fff;
+  --button-bg: #f0fafa;
+  --button-text: #01959d;
+  --button-hover-bg: #e5f6f7;
+  --button-hover-text: #017a81;
+  /* Add more as needed */
+}
+
+[data-theme='dark'] {
+  --background: #181a1b;
+  --text: #f1f1f1;
+  --card-bg: #23272a;
+  --button-bg: #23272a;
+  --button-text: #f1f1f1;
+  --button-hover-bg: #333;
+  --button-hover-text: #fff;
 }

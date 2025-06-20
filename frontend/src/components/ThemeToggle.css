@@ -1,0 +1,38 @@
+.theme-toggle-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+
+.theme-toggle-btn {
+  background: var(--button-bg, #f0fafa);
+  color: var(--button-text, #01959d);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    transform 0.1s;
+  box-shadow: 0 2px 8px rgba(1, 149, 157, 0.08);
+}
+
+.theme-toggle-btn:hover,
+.theme-toggle-btn:focus {
+  background: var(--button-hover-bg, #e5f6f7);
+  color: var(--button-hover-text, #017a81);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(1, 149, 157, 0.15);
+  outline: none;
+}
+
+.theme-toggle-btn:active {
+  background: #d3ecee;
+  color: #015e62;
+  transform: scale(0.98);
+}

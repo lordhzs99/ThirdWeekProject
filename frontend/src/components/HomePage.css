@@ -215,3 +215,31 @@ button[type="button"]:active {
   background: #d3d3d3;
   transform: scale(0.98);
 }
+
+.HomePage, .boardPage {
+  background: var(--background);
+  color: var(--text);
+}
+
+.boardOverview {
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.createNewBoardBtn button,
+.categoryButtons button,
+.boardButtons .view-board,
+.boardButtons button,
+.createCard button {
+  background: var(--button-bg);
+  color: var(--button-text);
+}
+
+.createNewBoardBtn button:hover,
+.categoryButtons button:hover,
+.boardButtons .view-board:hover,
+.boardButtons button:hover,
+.createCard button:hover {
+  background: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}
