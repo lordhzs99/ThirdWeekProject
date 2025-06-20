@@ -30,7 +30,7 @@ export default function Card({ cardId, title, description, author, gif, onDelete
     return (
          <div className='cardOverview'>
             <div className="cardContent">
-                <div className='cardTitle'>{title}</div>
+                <h2 className='cardTitle'>{title}</h2>
                 <div className='cardDescription'>{description}</div>
                 <div className='cardImage'>
                     <img src={gif} alt="GIF" />

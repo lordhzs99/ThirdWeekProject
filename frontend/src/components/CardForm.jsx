@@ -39,6 +39,11 @@ export default function CardForm({ open, close, id, onSuccess }){
 
     const createNewCard = (e) => {
         e.preventDefault()
+        
+        if(card.gif === '' || (card.title === '' || card.description.category === '')){ 
+        alert("Please fill out the required fields");
+        return
+        }
 
         fetch(`${import.meta.env.VITE_URL}/board/${id}/card`, {
         method: 'POST',
@@ -71,8 +76,8 @@ export default function CardForm({ open, close, id, onSuccess }){
         setSelectedGifUrl(gifUrl);
         setGif(gifUrl);
         setGifOptions([]);
-        setCard(prev => ({
-            ...prev,
+        setCard(before => ({
+            ...before,
             gif: gifUrl
         }));
         console.log("GIF: ", gif)
@@ -81,13 +86,13 @@ export default function CardForm({ open, close, id, onSuccess }){
 
     const handleCopyGifUrl = () => {
         setGif(selectedGifUrl);
+        console.log("HERE", selectedGifUrl); 
     };
 
     const handleChange = (e) => {
         const { name, value } = e.target
-
-        setCard(prevState => ({
-        ...prevState,
+        setCard(before => ({
+        ...before,
         [name]: value
         }))
     }
@@ -95,15 +100,15 @@ export default function CardForm({ open, close, id, onSuccess }){
     return (
          <div className='overlayModalCard'>
             <div className='formCard'>
-                <button onClick={close}>close</button>
+                <button onClick={close}>Close</button>
                 <h3>Create a new card</h3>
-                <label>Title</label>
-                <input type="text" name="title" value={card.title} onChange={handleChange}></input>
-                <label>description</label>
-                <input type="text" name="description" value={card.description} onChange={handleChange}></input>
+                <label>Title (required)</label>
+                <input type="text" name="title" value={card.title} onChange={handleChange} required></input>
+                <label>Description (required)</label>
+                <input type="text" name="description" value={card.description} onChange={handleChange} required></input>
+                <label>Type a gif... (required)</label>
                 <input
                     type="text"
-                    placeholder="Search GIFs..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -127,7 +132,6 @@ export default function CardForm({ open, close, id, onSuccess }){
                     )}
                      <input
                     type="text"
-                    placeholder="Enter GIF URL"
                     value={gif}
                     onChange={(e) => setGif(e.target.value)}
                     />
@@ -136,9 +140,9 @@ export default function CardForm({ open, close, id, onSuccess }){
                     type="button"
                     onClick={handleCopyGifUrl}
                     >
-                    Copy GIF URL
+                    Copy URL
                     </button>
-                <label>Owner</label>
+                <label>Owner (optional)</label>
                 <input type="text" name="author" value={card.author} onChange={handleChange}></input>
                 <button className='submit' onClick={createNewCard}>Create card</button>
             </div>

@@ -13,7 +13,10 @@ export default function BoardForm({ onBoardAdded, open, close }){
 
     const createNewBoard = (e) => {
     e.preventDefault()
-
+      if(formData.title === '' || (formData.category === '' || formData.category === 'Select...')){ 
+        alert("Please fill out the required fields");
+        return
+      }
     fetch(`${import.meta.env.VITE_URL}/board`, {
       method: 'POST',
       headers: {
@@ -49,20 +52,21 @@ export default function BoardForm({ onBoardAdded, open, close }){
     return (
         <div className='overlayModal'>
             <div className='form'>
-                <button onClick={close}>close</button>
+                <button onClick={close}>Close</button>
                 <h3>Create a new form</h3>
-                <label>Title</label>
-                <input type="text" name="title" value={formData.title} onChange={handleChange}></input>
-                <label>Category</label>
-                <select value={formData.category} name="category" onChange={handleChange}>
+                <label>Title (required)</label>
+                <input type="text" name="title" value={formData.title} onChange={handleChange} required></input>
+                <label>Category (required)</label>
+                <select value={formData.category} name="category" onChange={handleChange} required>
                     <option>Select...</option>
                     <option value="inspiration">Inspiration</option>
                     <option value="thank you">Thank you</option>
                     <option value="celebration">Celebration</option>
                 </select>
-                <label>Creator</label>
+                <label>Creator (optional)</label>
                 <input type="text" name="creator" value={formData.creator} onChange={handleChange}></input>
                 <button className='submit' onClick={createNewBoard}>Create board</button>
+
             </div>
         </div>
     )
