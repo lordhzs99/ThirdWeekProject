@@ -149,16 +149,17 @@ For me, the most challenging part of the project (labs) was to connect the front
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-I would have improved the way I personalize the UI, because I think I made the UI too similar to the example shown in the course
+I would have improved the way I personalize the UI, because I think I made the UI too similar to the example shown in the course. 
+Also, I would have implemented more stretch features, such as pin cards and comments
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I think it all went as planned
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+N/A
 
 ### Shout out
 
-Thank you all for your support, patience, and mostly, for your valuable lessons!
+Thank you to all my mentors for their support, patience, and mostly, for their valuable lessons!
