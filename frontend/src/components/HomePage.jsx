@@ -6,7 +6,7 @@ import Header from './Header.jsx'
 import Footer from './Footer.jsx'
 import BoardForm from './BoardForm.jsx';
 import BoardPage from './BoardPage.jsx';
-import './Homepage.css'
+import './HomePage.css'
 
 
 function HomePage({ onBoardAdded }) {
