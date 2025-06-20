@@ -53,7 +53,7 @@ export default function BoardForm({ onBoardAdded, open, close }){
         <div className='overlayModal'>
             <div className='form'>
                 <button onClick={close}>Close</button>
-                <h3>Create a new form</h3>
+                <h3>Create a new board</h3>
                 <label>Title (required)</label>
                 <input type="text" name="title" value={formData.title} onChange={handleChange} required></input>
                 <label>Category (required)</label>
