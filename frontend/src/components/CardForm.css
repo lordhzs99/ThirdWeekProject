@@ -1,31 +1,85 @@
 .formCard {
-    display: flex;
-    flex-direction: column;
-    position: fixed; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    background-color: hsl(210, 17%, 16%);
-    padding: 20px;
-    z-index: 1000;
-    text-align: center;
-    justify-content: space-between;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  background-color: hsl(210, 17%, 16%);
+  padding: 20px;
+  z-index: 1000;
+  text-align: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 70vh;
+  width: 50vh;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: white;
+  align-items: center; /* Add this line */
 }
 
-.overlayStyleCard { 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .7);
-    z-index: 1000;
+.formCard input[type="text"], .formCard label, .formCard button[type="search"], .formCard button[type="button"], .formCard .gif-options, .formCard .submit {
+  margin: 10px auto; /* Add this line */
+}
+
+.formCard input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.formCard label {
+  margin-bottom: 5px;
+}
+
+.formCard button[type="search"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #01959d;
+  color: white;
+  cursor: pointer;
+}
+
+.formCard button[type="button"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #01959d;
+  color: white;
+  cursor: pointer;
+}
+
+.formCard .gif-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.formCard .gif-container {
+  margin: 10px;
+}
+
+.formCard .gif {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formCard .submit {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color:  #01959d;
+  color: white;
+  cursor: pointer;
 }
 
 

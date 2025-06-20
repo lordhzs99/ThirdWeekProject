@@ -1,9 +1,13 @@
+import './Header.css'
+import { HiCubeTransparent } from "react-icons/hi";
+
+
 export default function Header(){
     return (
-        <header>
+        <header className="kudoHeader">
             <div className='kudoBoard'>
             KUDOBOARD
-            {/* <img src={forestImage}></img> // icon of the website*/}
+            <HiCubeTransparent />
             </div>
         </header>
     )

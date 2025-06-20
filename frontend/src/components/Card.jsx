@@ -21,9 +21,6 @@ export default function Card({ cardId, title, description, author, gif, onDelete
       throw new Error('Network response was not ok');
     }
 
-    // Optionally, get the updated card from the response
-    // const updatedCard = await response.json();
-
     setCurrentVotes(currentVotes + 1);
   } catch (error) {
     console.error("Error upvoting card:", error);
@@ -32,25 +29,17 @@ export default function Card({ cardId, title, description, author, gif, onDelete
 
     return (
          <div className='cardOverview'>
-            <div className='cardImage'>
-                IMAGE
+            <div className="cardContent">
+                <div className='cardTitle'>{title}</div>
+                <div className='cardDescription'>{description}</div>
+                <div className='cardImage'>
+                    <img src={gif} alt="GIF" />
+                </div>
+                <div className='boardAuthor'>{author}</div>
             </div>
-            <div className='cardTitle'>
-                {title}
-            </div>
-            <div className='cardDescription'>
-                {description}
-            </div>
-            <div className='boardAuthor'>
-                {author}
-            </div>
-            <img src={gif} alt="GIF" />
             <div className='cardButtons'>
-                  <button className='upvote-button' onClick={handleUpvote}>Upvote: {currentVotes}</button>
-
-                <button className="delete-button" onClick={onDelete}>
-                    Delete
-                    </button>
+                <button className='upvote-button' onClick={handleUpvote}>Upvote: {currentVotes}</button>
+                <button className="delete-button" onClick={onDelete}>Delete</button>
             </div>
         </div>
     )

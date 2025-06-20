@@ -1,0 +1,87 @@
+.cardOverview {
+    display: flex;
+    flex-direction: column;
+    background: #d5d5d5;
+    padding: 1px;
+    box-shadow: 0px 5px 8px hsl(192, 40%, 31%), 
+                0 10px 10px #32b373; 
+    transition: .2s;
+    margin: 10px;
+    height: 370px; /* or whatever fixed height you want */
+    width: 320px;  /* or whatever fixed width you want */
+}
+
+.cardTitle, .cardDescription, .boardAuthor {
+    text-align: center;
+    margin: 4px 0;
+}
+
+.cardImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 220px;   /* fixed height for image area */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cardImage img {
+    width: 200px;    /* fixed width for all images */
+    height: 200px;   /* fixed height for all images */
+    object-fit: cover; /* or 'contain' if you want to see the whole gif */
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.cardContent {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.cardButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+    padding: 8px 0 0 0;
+}
+
+
+.cardButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cardButtons .view-board,
+.cardButtons button {
+  background: #f0fafa;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 
+    box-shadow 0.2s,
+    transform 0.1s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cardButtons .view-board:hover,
+.cardButtons button:hover {
+  background: #e5e5e5;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.cardButtons .view-board:active,
+.cardButtons button:active {
+  background: #d3d3d3;
+  transform: scale(0.98);
+}

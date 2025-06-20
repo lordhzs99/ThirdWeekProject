@@ -1,7 +1,11 @@
+import './Footer.css'
+
 export default function Footer(){
     return(
-        <footer>
-        FOOTER
+        <footer className="kudoFooter">
+          <div className='kudoFInside'>
+        Made by: Hector Zambrano
+        </div>
       </footer>
     )
 }

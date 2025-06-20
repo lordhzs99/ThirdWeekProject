@@ -104,9 +104,9 @@ function HomePage({ onBoardAdded }) {
         <div className='boardImage'>                        
           <img src={imgUrl} alt="GIF" />
         </div>
-        <div className='boardTitle'>
+        <h3 className='boardTitle'>
           {board.title}
-        </div>
+        </h3>
         <div className='boardSubtitle'>
           {board.category}
         </div>
@@ -139,7 +139,7 @@ function HomePage({ onBoardAdded }) {
         <input 
           className="searchVar" 
           type="text" 
-          placeholder='Search for movies' 
+          placeholder='Search for boards' 
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={(e) => {

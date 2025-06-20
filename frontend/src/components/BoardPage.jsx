@@ -5,6 +5,8 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { useEffect, useState } from 'react'
 import { Link, useParams } from "react-router-dom";
+import { HiArrowCircleLeft } from "react-icons/hi";
+
 
 export default function BoardPage(){
     const { id } = useParams();
@@ -43,24 +45,6 @@ export default function BoardPage(){
   fetchData();
 }, [id]);
 
-
-    
-// const handlelOnDelete = (card_id) => {
-//     console.log("cardddd: ", card_id)
-//   fetch(`http://localhost:3000/board/${id}/card/${card_id}`, {
-//     method: 'DELETE',
-//   })
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error('Failed to delete the board.')
-//     }
-//     setGridCard(prevCards => prevCards.filter(card => card.id !== card_id));
-//   })
-//   .catch(error => {
-//     console.error('Error:', error)
-//     // setError('Failed to delete board. Please try again later.')
-//   });
-// };
 
 const handlelOnDelete = (card_id) => {
   fetch(`http://localhost:3000/board/${id}/card/${card_id}`, {
@@ -111,12 +95,14 @@ const handlelOnDelete = (card_id) => {
         <div className="boardPage">
             <Header/>
             <Link to="/">
-                <span className="back-arrow"></span>
+                {/* <span className="back-arrow"></span> */}
+                <HiArrowCircleLeft style={{ fontSize: '2rem', color: '#01959d', marginLeft: '25px', width: '3vw', height: '3vw', display: "block"}}/>
             </Link>
             <main>
-            <div>
+            <h1>
                 {title}
-            </div>
+            </h1>
+            <div className="createCard">
             <button onClick={() => setIsOpen(true)}>Create new card</button>
                 <CardForm 
                             onSuccess={handleCreateSuccess}
@@ -125,6 +111,8 @@ const handlelOnDelete = (card_id) => {
                             id={id}
                             //  onBoardAdded={onBoardAdded}
                 />
+            </div>
+
             <div className="gridOfCards">
                 {currentCards()}
             </div>
