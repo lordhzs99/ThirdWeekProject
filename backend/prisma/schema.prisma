@@ -30,4 +30,5 @@ model Card {
   author       String?
   createdAt DateTime  @default(now())
   board_id  Int?
+  votes       Int      @default(0)
 }

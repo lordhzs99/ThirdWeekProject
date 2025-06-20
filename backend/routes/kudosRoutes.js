@@ -17,7 +17,7 @@ router.get('/board', cors(), async (req, res) => {
 }) 
 
 router.get('/board/:id', cors(), async (req, res) => {
-    console.log("HEREEEE")
+    // console.log("HEREEEE")
     const boardId = parseInt(req.params.id)
     try {
         const board = await prisma.board.findUnique({
@@ -48,7 +48,6 @@ router.post('/board', async (req, res) => {
 })
 
 router.delete('/board/:id', async (req, res) => {
-//   console.log("deleted");
   const { id } = req.params
   const deletedBoard = await prisma.board.delete({
     where: { id: parseInt(id) }

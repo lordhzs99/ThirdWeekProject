@@ -10,3 +10,14 @@
     grid-template-columns: repeat(auto-fill, 300px);
     gap: 20px;
 }
+
+
+.back-arrow {
+    display: block;
+    width: 1vw;
+    height: 1vw;
+    border-bottom: 5px solid teal;
+    border-right: 5px solid teal;
+    transform: rotate(135deg);
+    margin: 10px;
+}

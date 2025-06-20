@@ -9,9 +9,6 @@ import BoardPage from './BoardPage.jsx';
 import './Homepage.css'
 
 
-
-
-
 function HomePage({ onBoardAdded }) {
   const [isOpen, setIsOpen] = useState(false);
   const [count, setCount] = useState(0)
@@ -20,99 +17,114 @@ function HomePage({ onBoardAdded }) {
   const [currentCategory, setCategory] = useState(''); 
   const [filteredBoard, setFilteredBoards] = useState([]);
   const navigate = useNavigate();
+  
 
 
-  useEffect(() => {
-    // fetch data from backend
+    useEffect(() => {
     const fetchData = async () => {
         fetch('http://localhost:3000/board')
-            .then(response => response.json())
-            .then(data => setGridBoard(data))
-            .catch(error => console.error('Error fetching boards:', error))
+        .then(response => response.json())
+        .then(data => {
+            // Assign a random image number to each board ONCE
+            const boardsWithImages = data.map(board => ({
+            ...board,
+            randomImage: Math.floor(Math.random() * 1000)
+            }));
+            setGridBoard(boardsWithImages);
+            // currentBoards();
+        })
+        .catch(error => console.error('Error fetching boards:', error))
     };
     fetchData();
-  }, []);
+    }, []);
+    // console.log("currgrid: ", gridBoard)
 
-  useEffect(() => { // for searching
+
+    useEffect(() => {
     let searchBoard = gridBoard; 
     if (searchQuery) {
-      searchBoard = searchBoard.filter((board) =>
+        searchBoard = searchBoard.filter((board) =>
         board.title.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+        );
     } else if(currentCategory === "recent"){
-       searchBoard = searchBoard.sort((a, b) => 
+        searchBoard = searchBoard.sort((a, b) => 
         new Date(b.creation_date) - new Date(a.creation_date));
-    } else if(currentCategory) {
-      console.log("Category: ", currentCategory); 
-      searchBoard = searchBoard.filter((board) => 
+    } else if(currentCategory && currentCategory !== "all") {
+        searchBoard = searchBoard.filter((board) => 
         board.category.toLowerCase().includes(currentCategory)
-      )
+        );
     } else {
-      searchBoard = searchBoard.sort((a, b) => 
+        searchBoard = searchBoard.sort((a, b) => 
         new Date(b.creation_date) - new Date(a.creation_date));
     }
     setFilteredBoards(searchBoard);
-    // console.log("useEffect: ", filteredBoard)
-  }, [searchQuery, gridBoard, currentCategory]);
-
-  console.log(gridBoard); 
+    }, [searchQuery, gridBoard, currentCategory]);
 
 
-  const handlelOnDelete = (id) => {
+
+    const handlelOnDelete = (id) => {
     fetch(`http://localhost:3000/board/${id}`, {
-      method: 'DELETE',
+        method: 'DELETE',
     })
     .then(response => {
-      if (!response.ok) {
+        if (!response.ok) {
         throw new Error('Failed to delete the board.')
-      }
-      setBoard(boards.filter(board => board.id !== id))
-      onBoardAdded();
+        }
+        setGridBoard(prevBoards => prevBoards.filter(board => board.id !== id));
+        
     })
     .catch(error => {
-      console.error('Error:', error)
-      setError('Failed to delete board. Please try again later.')
+        console.error('Error:', error)
     });
-  };
+    };
 
 
-  function handleCategoryButton(currentCategory) {
-    setCategory(currentCategory); 
-    // console.log(currentCategory); 
-  }
+    function handleCategoryButton(category) {
 
-  const handleClearButton = () => {
-    setSearchQuery(""); 
-  }
+    if (category === 'all') {
+        // console.log("ALL")
+        setCategory('all');
+    } else {
+        setCategory(category);
+    }
+    }
+
+    const handleClearButton = () => {
+        setSearchQuery(""); 
+    }
+
 
   const currentBoards = () => {
-    return filteredBoard.map((board, idx) => (
-                <div className='boardOverview'>
-                    <div className='boardImage'>
-                        IMAGE
-                    </div>
-                    <div className='boardTitle'>
-                        {board.title}
-                    </div>
-                    <div className='boardSubtitle'>
-                        {board.category}
-                    </div>
-                    <div className='boardButtons'>
-                        {/* <button className='viewBoardBtn'> */}
-                    <Link
-                    to={`/${board.id}`}
-                    className="button-common view-board"
-                    >
-                    View Board
-                    </Link>
-                        {/* </button> */}
-                         <button onClick={() => handlelOnDelete(board.id)}>
-                        Delete board
-                        </button>
-                    </div>
-                </div>
-            ))
-  }
+
+  const boardsToShow = currentCategory === 'all' ? filteredBoard : filteredBoard.slice(0, 6);
+  return boardsToShow.map((board, idx) => {
+    const imgUrl = `https://picsum.photos/200/300?random=${board.randomImage}`;
+    return (
+      <div className='boardOverview' key={board.id}>
+        <div className='boardImage'>                        
+          <img src={imgUrl} alt="GIF" />
+        </div>
+        <div className='boardTitle'>
+          {board.title}
+        </div>
+        <div className='boardSubtitle'>
+          {board.category}
+        </div>
+        <div className='boardButtons'>
+          <Link
+            to={`/${board.id}`}
+            className="button-common view-board"
+          >
+            View Board
+          </Link>
+          <button onClick={() => handlelOnDelete(board.id)}>
+            Delete board
+          </button>
+        </div>
+      </div>
+    );
+  });
+};
 
 
   const handleCreateSuccess = () => {
@@ -157,9 +169,6 @@ function HomePage({ onBoardAdded }) {
         <div className='gridOfBoards'>
           {currentBoards()}
         </div>
-        {/* <BoardGrid gridBoard={gridBoard}>
-
-        </BoardGrid> */}
       </main>
       <Footer/>
     </div>

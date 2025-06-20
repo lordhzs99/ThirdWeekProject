@@ -60,7 +60,7 @@ export default function CardForm({ open, close, id, onSuccess }){
         .then(data => {
         console.log('Success:', data)
         
-        onSuccess(card);
+        onSuccess(data);
         })
         .catch((error) => {
         console.error('Error:', error)
@@ -71,6 +71,11 @@ export default function CardForm({ open, close, id, onSuccess }){
         setSelectedGifUrl(gifUrl);
         setGif(gifUrl);
         setGifOptions([]);
+        setCard(prev => ({
+            ...prev,
+            gif: gifUrl
+        }));
+        console.log("GIF: ", gif)
     };
 
 
@@ -115,11 +120,25 @@ export default function CardForm({ open, close, id, onSuccess }){
                             src={gifUrl}
                             alt="GIF"
                             onClick={() => handleSelectGif(gifUrl)}
+                            // onClick={(e) => {setSelectedGifUrl(e.target.value); setGif(e.target.value); setGifOptions([]);}}
                             />
                         </div>
                         ))}
                     </div>
                     )}
+                     <input
+                    type="text"
+                    placeholder="Enter GIF URL"
+                    value={gif}
+                    onChange={(e) => setGif(e.target.value)}
+                    />
+                    <button
+                    className="copy-button"
+                    type="button"
+                    onClick={handleCopyGifUrl}
+                    >
+                    Copy GIF URL
+                    </button>
                 <label>Owner</label>
                 <input type="text" name="author" value={card.author} onChange={handleChange}></input>
                 <button className='submit' onClick={createNewCard}>Create card</button>
