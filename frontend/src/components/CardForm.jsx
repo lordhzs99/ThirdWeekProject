@@ -84,10 +84,10 @@ export default function CardForm({ open, close, id, onSuccess }){
     };
 
 
-    const handleCopyGifUrl = () => {
-        setGif(selectedGifUrl);
-        console.log("HERE", selectedGifUrl); 
-    };
+    // const handleCopyGifUrl = () => {
+    //     setGif(selectedGifUrl);
+    //     console.log("HERE", selectedGifUrl); 
+    // };
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -130,18 +130,11 @@ export default function CardForm({ open, close, id, onSuccess }){
                         ))}
                     </div>
                     )}
-                     <input
+                     {/* <input
                     type="text"
                     value={gif}
                     onChange={(e) => setGif(e.target.value)}
-                    />
-                    <button
-                    className="copy-button"
-                    type="button"
-                    onClick={handleCopyGifUrl}
-                    >
-                    Copy URL
-                    </button>
+                    /> */}
                 <label>Owner (optional)</label>
                 <input type="text" name="author" value={card.author} onChange={handleChange}></input>
                 <button className='submit' onClick={createNewCard}>Create card</button>
