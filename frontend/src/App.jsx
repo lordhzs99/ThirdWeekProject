@@ -4,9 +4,6 @@ import BoardPage from './components/BoardPage.jsx';
 import BoardForm from './components/BoardForm.jsx';
 import './App.css'
 function App() {
-  const handleBoardAdded = () => {
-    window.location.href = '/';
-  };
 
   return (
     <Router>
